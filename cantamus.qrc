@@ -1,0 +1,24 @@
+<RCC>
+    <qresource prefix="/images/icons">
+        <file>cantamus.svg</file>
+        <file>draw.svg</file>
+        <file>ffwd.svg</file>
+        <file>pause.svg</file>
+        <file>play.svg</file>
+        <file>rw.svg</file>
+        <file>stop.svg</file>
+        <file>toend.svg</file>
+        <file>tostart.svg</file>
+        <file>button_edit.svg</file>
+        <file>lipsync.svg</file>
+        <file>settings.svg</file>
+        <file>soundedit.svg</file>
+        <file>hand.svg</file>
+        <file>logo.svg</file>
+        <file>changelyrics.svg</file>
+        <file>addnotes.svg</file>
+        <file>erase.svg</file>
+        <file>singericon.svg</file>
+        <file>singer.svg</file>
+    </qresource>
+</RCC>

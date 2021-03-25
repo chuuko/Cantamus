@@ -1,0 +1,25 @@
+Cantamus help v0.1
+This program is not fully functional yet.
+This version can render and play sheets via a rudimentary resampler-cum-wavtool. Pitch detection is implemented via WORLD, which means that freqmaps are back and no central pitch value has to be set. The actual synthesis process is also handled by WORLD, which means NO SQUEAKS. It's best to leave the format filter on as the resampler's formantless mode leaves much to be desired.
+This version supports custom voicebanks.
+The fart has been removed.
+It has basic UST loading abilities and Vocaloid-style rest omissions.
+Read and write support for the native file format, CVS, is added.
+This version comes with a very primitive UST export functionality.
+Sheet loading is handled by a shared library that has been stripped of Qt. Thus, the UI may glitch upon sheet loading.
+Note input with note control, pitch control and lyric input is supported (notes are not modifiable yet).
+File writing is being implemented. Saving a file is supported, but it does not detect whether the file is saved before yet. Extension appending is being implemented.
+Global settings can be set in Temporary->Global settings.
+Input via mouse is almost complete. It does not support note preview as it would require some drag & drop functionality. Also, automatic sheet growth is supported.
+Note lengths can be edited via the Note properties dialog.
+Earlier versions had a bug which caused the appearance of glitch notes if a note overlapping with others was created with the mouse.
+For convenience, you can now enter multiple notes with different lyrics.
+Just switch into edit mode to start drawing notes.
+Changing lyrics is supported.
+Just use the "Change lyrics" button or just double-click on the note and edit the lyrics there.
+Erasing is supported. Bulk erasing will be reimplemented as is was previously been caused by a bug. Use the "Erase mode" button.
+There is a non-functional bulk select feature in this version.
+Bulk note creation is possible. Most bugs are fixed by now. Put commas after each syllable.
+There is an oto editor and flag editor in this version. The character viewer has been updated since the last preview.
+The oto editor can read otos and has a really primordial waveform display.
+This version can load files upon startup.
