@@ -97,12 +97,18 @@ MainWindow::MainWindow(QWidget *parent) :
         {
             QMessageBox::warning(this,"Error","There are no voicebanks. Please install a voicebank first");
         }
+
         voiceConf.setFileName(voiceLib + QString("/bank.conf"));
         voiceConf.open(QFile::ReadOnly);
         if(voiceConf.isOpen()==false)
         {
-            QMessageBox::warning(this,"Error","No bank.conf found");
-            break;
+            voiceConf.setFileName(voiceLib + QString("/character.txt"));
+            voiceConf.open(QFile::ReadOnly);
+            if(voiceConf.isOpen()==false)
+            {
+                QMessageBox::warning(this,"Error","No bank.conf found");
+                break;
+            }
         }
 
         QTextStream vData(&voiceConf);
