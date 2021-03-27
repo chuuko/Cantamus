@@ -9,14 +9,18 @@ editorPlace::editorPlace(QWidget *parent) :
 {
     otoInfo = new QLabel ("Edit your voicebank configuration here.\nClick on 'Load' to open an oto.ini file");
     otoTable = new QTableWidget(this);
-    otoHeaders << "File" << "Alias" << "Sample start" << "Sample fixed" << "Sample cutoff" << "Consonant slide" << "Overlap";
+    otoHeadec2s << "File" << "Alias" << "Sample start" << "Sample fixed" << "Sample cutoff" << "Consonant slide" << "Overlap";
     otoButton = new QPushButton("Load oto.ini",this);
+    QFont font;
+    font.setFamily("japanese");
 
+    otoTable->setFont(font);
 
     otoTable->setSizePolicy(QSizePolicy::Expanding,QSizePolicy::Expanding);
     otoTable->setSizeIncrement(2,2);
     otoTable->setColumnCount(7);
-    otoTable->setHorizontalHeaderLabels(otoHeaders);    
+    otoTable->setHorizontalHeadec2Labels(otoHeadec2s);
+    otoTable->setLocale(QLocale("ja_JP.SJIS"));
 
     connect(otoTable,SIGNAL(currentCellChanged(int,int,int,int)),this,SLOT(updateWave(int,int,int,int)));
 
@@ -30,15 +34,18 @@ editorPlace::editorPlace(QWidget *parent) :
 void editorPlace::loadOto(QString otoFile)
 {
     QString lineO;
+    QTextCodec *dec= QTextCodec::codecForName("Shift-JIS");
     QFile o(otoFile+"/oto.ini");
     aVoice = otoFile;
     o.open(QFile::ReadOnly);
     QTextStream otos(&o);
     otos.setAutoDetectUnicode(true);
+    otos.setLocale(QLocale("ja_JP.SJIS"));
     int otoEntry = 0;
     while(otos.atEnd()==0)
     {
-        lineO = otos.readLine();
+        QByteArray dec2= dec->fromUnicode(otos.readLine());
+        lineO = QString(dec2);
         int f = lineO.indexOf(QString("="));
         if(f!=-1)
         {

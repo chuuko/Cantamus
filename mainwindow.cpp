@@ -39,6 +39,7 @@ MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
+    setLocale(QLocale("ja_JP.SJIS"));
     foff=1;
     rootDir = new QDir(QString(cHome) + "/.cantamus");
 
